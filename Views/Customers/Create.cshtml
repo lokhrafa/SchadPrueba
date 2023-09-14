@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+
+}
+
+@model Customers
+
+ <h2>Crear Cliente</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CustName" class="control-label"> Nombre </label>
+                <input asp-for="CustName" class="form-control" />
+                <span asp-validation-for="CustName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adress" class="control-label" >Direccion</label>
+                <input asp-for="Adress" class="form-control" />
+                <span asp-validation-for="Adress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Status" class="form-check-input" type="checkbox" id="flexCheckDefault" />
+                <label asp-for="Status" class="form-check-label" for="flexCheckDefault"></label>
+                
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CustomerTypesId">Tipo Cliente</label>
+                <select asp-for="CustomerTypesId" class="form-control" asp-items="new SelectList(ViewBag.CustomerTypes, nameof(CustomerTypes.Id), nameof(CustomerTypes.Description))">
+                    <option value="">Seleccione un tipo de cliente...</option>
+                </select>
+                <span asp-validation-for="CustomerTypesId" class="text-danger"></span>
+            </div>
+
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Atras</a>
+</div>
+  
+

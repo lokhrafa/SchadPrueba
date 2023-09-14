@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Invoice>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<p>
+    <a asp-action="Create">Crear  Factura</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Cliente
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalItbis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customers.CustName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalItbis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubTotal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+         
+            </tr>
+        }
+    </tbody>
+</table>
